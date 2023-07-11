@@ -1,5 +1,7 @@
 # flixbox-nodebot
 
+https://github.com/Flixbox/flixbox-nodebot
+
 [![Build and Test](https://github.com/Flixbox/flixbox-nodebot/actions/workflows/run.yml/badge.svg)](https://github.com/Flixbox/flixbox-nodebot/actions/workflows/run.yml)
 
 The lightbot solver is built on top of Vite 4.x and TypeScript. It generates a hybrid package - both support for CommonJS and ESM modules.
@@ -9,51 +11,19 @@ The lightbot solver is built on top of Vite 4.x and TypeScript. It generates a h
 - Most of the regex is from Bing AI.
 - The individual levels have been downloaded from https://github.com/haan/Lightbot/blob/master/resources/maps/maps.txt
 
+## Caveats
+
+- Only a few levels have been implemented. The startig y-coordinates were garbled in the original data, and I only had the chance to fix a few of them.
+- There is a limited amount of tests and no negative test yet. Feel free to add more by adding the text files in ./test and adding them to test/commands.ts
+
 ---
 
-Template readme:
-
-## Features
-
-- Hybrid support - CommonJS and ESM modules
-- IIFE bundle for direct browser support without bundler
-- Typings bundle
-- ESLint - scripts linter
-- Stylelint - styles linter
-- Prettier - formatter
-- Vitest - test framework
-- Husky + lint-staged - pre-commit git hook set up for formatting
-
-## GitHub Template
-
-This is a template repo. Click the green [Use this template](https://github.com/kbysiec/vite-vanilla-ts-lib-starter/generate) button to get started.
-
-## Clone to local
-
-If you prefer to do it manually with the cleaner git history
-
-```bash
-git clone https://github.com/kbysiec/vite-vanilla-ts-lib-starter.git
-cd vite-vanilla-ts-lib-starter
-npm i
-```
-
-## Checklist
-
-When you use this template, update the following:
-
-- Remove `.git` directory and run `git init` to clean up the history
-- Change the name in `package.json` - it will be the name of the IIFE bundle global variable and bundle files name (`.cjs`, `.mjs`, `.iife.js`, `d.ts`)
-- Change the author name in `LICENSE`
-- Clean up the `README` and `CHANGELOG` files
-
-And, enjoy :)
+Taken from template readme:
 
 ## Usage
 
 The starter contains the following scripts:
 
-- `dev` - starts dev server
 - `build` - generates the following bundles: CommonJS (`.cjs`) ESM (`.mjs`) and IIFE (`.iife.js`). The name of bundle is automatically taken from `package.json` name property
 - `test` - starts vitest and runs all tests
 - `test:coverage` - starts vitest and run all tests with code coverage report
@@ -64,9 +34,3 @@ The starter contains the following scripts:
 - `format` - format all with prettier and stylelint
 - `prepare` - script for setting up husky pre-commit hook
 - `uninstall-husky` - script for removing husky from repository
-
-## Acknowledgment
-
-If you found it useful somehow, I would be grateful if you could leave a star in the project's GitHub repository.
-
-Thank you.
