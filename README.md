@@ -1,6 +1,15 @@
-# vite-vanilla-ts-lib-starter
+# flixbox-nodebot
 
-The starter is built on top of Vite 4.x and prepared for writing libraries in TypeScript. It generates a hybrid package - both support for CommonJS and ESM modules.
+The lightbot solver is built on top of Vite 4.x and TypeScript. It generates a hybrid package - both support for CommonJS and ESM modules.
+
+## Credits
+
+- Most of the regex is from Bing AI.
+- The individual levels have been downloaded from https://github.com/haan/Lightbot/blob/master/resources/maps/maps.txt
+
+---
+
+Template readme:
 
 ## Features
 
