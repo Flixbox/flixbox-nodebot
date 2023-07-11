@@ -53,10 +53,16 @@ export const solve = (commands: string) => {
   for (const { command } of instructions) {
     console.log(position.y);
     // TODO y too high
-    const robotLocationInMap = map[position.y][position.x];
+    const oldRobotLocationInMap = map[position.y][position.x];
+    let newLocation;
     switch (command) {
       case "walk":
+        // TODO Collision detection
+        console.log("walking");
         move(direction);
+        newLocation = map[position.y][position.x];
+        if (newLocation.h !== oldRobotLocationInMap.h)
+          throw new Error("Robot is trying to walk on a wall");
         break;
       case "left":
         console.log("turning left");
@@ -67,7 +73,7 @@ export const solve = (commands: string) => {
         direction = (direction + 1) % 4;
         break;
       case "light":
-        if (robotLocationInMap.t === TileType.Light) {
+        if (oldRobotLocationInMap.t === TileType.Light) {
           console.log("lighting");
           litTiles++;
         } else {
@@ -77,6 +83,9 @@ export const solve = (commands: string) => {
       case "jump":
         console.log("jump");
         move(direction);
+        newLocation = map[position.y][position.x];
+        if (newLocation.h === oldRobotLocationInMap.h)
+          throw new Error("Robot is jumping on a flat surface");
         break;
     }
 
