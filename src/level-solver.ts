@@ -29,30 +29,34 @@ export const solve = (commands: string) => {
 
   console.log(position);
 
+  const move = (direction: Direction) => {
+    switch (direction) {
+      case Direction.Down:
+        console.log("walking down");
+        position.y++;
+        break;
+      case Direction.Left:
+        console.log("walking left");
+        position.x--;
+        break;
+      case Direction.Up:
+        console.log("walking up");
+        position.y--;
+        break;
+      case Direction.Right:
+        console.log("walking right");
+        position.x++;
+        break;
+    }
+  };
+
   for (const { command } of instructions) {
     console.log(position.y);
     // TODO y too high
     const robotLocationInMap = map[position.y][position.x];
     switch (command) {
       case "walk":
-        switch (direction) {
-          case Direction.Down:
-            console.log("walking down");
-            position.y++;
-            break;
-          case Direction.Left:
-            console.log("walking left");
-            position.x--;
-            break;
-          case Direction.Up:
-            console.log("walking up");
-            position.y--;
-            break;
-          case Direction.Right:
-            console.log("walking right");
-            position.x++;
-            break;
-        }
+        move(direction);
         break;
       case "left":
         console.log("turning left");
@@ -72,6 +76,7 @@ export const solve = (commands: string) => {
         break;
       case "jump":
         console.log("jump");
+        move(direction);
         break;
     }
 
