@@ -16,13 +16,11 @@ The lightbot solver is built on top of Vite 4.x and TypeScript. It generates a h
 - Only a few levels have been implemented. The startig y-coordinates were garbled in the original data, and I only had the chance to fix a few of them.
 - There is a limited amount of tests and no negative test yet. Feel free to add more by adding the text files in ./test and adding them to test/commands.ts
 
----
-
-Taken from template readme:
-
 ## Usage
 
-The starter contains the following scripts:
+Install via npm, then simply run `npm run test` to run the tests.
+
+The repo contains the following scripts:
 
 - `build` - generates the following bundles: CommonJS (`.cjs`) ESM (`.mjs`) and IIFE (`.iife.js`). The name of bundle is automatically taken from `package.json` name property
 - `test` - starts vitest and runs all tests
