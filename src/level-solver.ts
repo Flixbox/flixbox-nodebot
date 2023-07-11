@@ -1,8 +1,8 @@
+import { getLevelId } from "./parser";
 import maps from "./resources/maps";
 
 export const solve = (commands: string) => {
-  console.log(commands);
-  console.log(maps[0]);
+  const levelId = getLevelId(commands);
 
   console.log("Level 1 not solved.");
   return 0;
