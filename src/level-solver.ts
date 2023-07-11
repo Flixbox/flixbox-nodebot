@@ -9,9 +9,9 @@ import maps from "./resources/maps";
 
 enum Direction {
   Down = 0,
-  Right = 1,
+  Left = 1,
   Up = 2,
-  Left = 3,
+  Right = 3,
 }
 
 export const solve = (commands: string) => {
@@ -21,17 +21,21 @@ export const solve = (commands: string) => {
   let { direction } = maps[levelId];
 
   for (const { command } of instructions) {
-    console.log("position", position);
     switch (command) {
       case "walk":
-        if (direction === Direction.Down) {
-          position.y++;
-        } else if (direction === Direction.Right) {
-          position.x++;
-        } else if (direction === Direction.Up) {
-          position.y--;
-        } else if (direction === Direction.Left) {
-          position.x--;
+        switch (direction) {
+          case Direction.Down:
+            position.y++;
+            break;
+          case Direction.Left:
+            position.x--;
+            break;
+          case Direction.Up:
+            position.y--;
+            break;
+          case Direction.Right:
+            position.x++;
+            break;
         }
         break;
       case "left":
