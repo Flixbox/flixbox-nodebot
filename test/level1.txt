@@ -1,0 +1,15 @@
+robot(1) {
+    walk();
+    walk();
+    walk();
+    walk();
+    light();
+    repeat(2) {
+        left();
+        walk();
+        walk();
+        walk();
+        walk();
+        light();
+    }
+}
