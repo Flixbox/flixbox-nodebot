@@ -1,0 +1,7 @@
+robot(3) {
+    walk();
+    jump();
+    jump();
+    walk();
+    light();
+}
