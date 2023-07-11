@@ -1,5 +1,7 @@
 # flixbox-nodebot
 
+[![Build and Test](https://github.com/Flixbox/flixbox-nodebot/actions/workflows/run.yml/badge.svg)](https://github.com/Flixbox/flixbox-nodebot/actions/workflows/run.yml)
+
 The lightbot solver is built on top of Vite 4.x and TypeScript. It generates a hybrid package - both support for CommonJS and ESM modules.
 
 ## Credits
