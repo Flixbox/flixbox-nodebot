@@ -14,38 +14,61 @@ enum Direction {
   Right = 3,
 }
 
+enum TileType {
+  Empty = "b",
+  Light = "l",
+}
+
 export const solve = (commands: string) => {
   const instructions = getInstructions(commands);
   const levelId = getLevelId(instructions);
+
   const { position, medals, map } = maps[levelId];
   let { direction } = maps[levelId];
+  let litTiles = 0;
+
+  console.log(position);
 
   for (const { command } of instructions) {
+    console.log(position.y);
+    // TODO y too high
+    const robotLocationInMap = map[position.y][position.x];
     switch (command) {
       case "walk":
         switch (direction) {
           case Direction.Down:
+            console.log("walking down");
             position.y++;
             break;
           case Direction.Left:
+            console.log("walking left");
             position.x--;
             break;
           case Direction.Up:
+            console.log("walking up");
             position.y--;
             break;
           case Direction.Right:
+            console.log("walking right");
             position.x++;
             break;
         }
         break;
       case "left":
+        console.log("turning left");
         direction = (direction + 3) % 4;
         break;
       case "right":
+        console.log("turning right");
         direction = (direction + 1) % 4;
         break;
       case "light":
-        console.log("light");
+        if (robotLocationInMap.t === TileType.Light) {
+          console.log("lighting");
+          litTiles++;
+        } else {
+          throw new Error("Robot is trying to light a non-light tile");
+        }
         break;
       case "jump":
         console.log("jump");
@@ -53,6 +76,22 @@ export const solve = (commands: string) => {
     }
   }
 
-  console.log(`Level ${levelId} not solved.`);
-  return 0;
+  let lights = 0;
+  for (const row of map) {
+    for (const tile of row) {
+      if (tile.t === "l") {
+        lights++;
+      }
+    }
+  }
+
+  if (litTiles !== lights) {
+    console.log(
+      `Level ${levelId} not solved. Not enough light tiles lit. Expected ${lights}, got ${litTiles}.`
+    );
+    return 0;
+  }
+
+  console.log(`Level ${levelId} solved successfully.`);
+  return 1;
 };

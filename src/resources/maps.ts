@@ -100,7 +100,7 @@ export default [
   },
   {
     direction: 0,
-    position: { x: 2, y: 5 },
+    position: { x: 2, y: 2 },
     map: [
       [
         { h: 2, t: "b" },
