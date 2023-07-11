@@ -74,6 +74,15 @@ export const solve = (commands: string) => {
         console.log("jump");
         break;
     }
+
+    if (
+      position.y < 0 ||
+      position.y >= map.length ||
+      position.x < 0 ||
+      position.x >= map[0].length
+    ) {
+      throw new Error("Robot is out of bounds");
+    }
   }
 
   let lights = 0;
