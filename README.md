@@ -8,17 +8,18 @@ The lightbot solver is built on top of Vite 4.x and TypeScript. It generates a h
 
 ## Credits
 
-- Most of the regex is from Bing AI.
+- Most of the parser is from Bing AI.
 - The individual levels have been downloaded from https://github.com/haan/Lightbot/blob/master/resources/maps/maps.txt
 
 ## Caveats
 
 - Only a few levels have been implemented. The startig y-coordinates were garbled in the original data, and I only had the chance to fix a few of them.
 - There is a limited amount of tests and no negative test yet. Feel free to add more by adding the text files in ./test and adding them to test/commands.ts
+- I did not test if nested loops work. I wonder if Bing AI was smart enough to implement that. ¯\\_(ツ)_/¯
 
 ## Usage
 
-Install via npm, then simply run `npm run test` to run the tests.
+Install via `npm i`, then simply run `npm run test` to run the tests.
 
 The repo contains the following scripts:
 

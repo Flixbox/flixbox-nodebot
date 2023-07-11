@@ -23,11 +23,11 @@ export const solve = (commands: string) => {
   const instructions = getInstructions(commands);
   const levelId = getLevelId(instructions);
 
-  const { position, medals, map } = maps[levelId];
+  console.log(`Solving level ${levelId}`);
+
+  const { position, map } = maps[levelId];
   let { direction } = maps[levelId];
   let litTiles = 0;
-
-  console.log(position);
 
   const move = (direction: Direction) => {
     switch (direction) {
@@ -51,13 +51,10 @@ export const solve = (commands: string) => {
   };
 
   for (const { command } of instructions) {
-    console.log(position.y);
-    // TODO y too high
     const oldRobotLocationInMap = map[position.y][position.x];
     let newLocation;
     switch (command) {
       case "walk":
-        // TODO Collision detection
         console.log("walking");
         move(direction);
         newLocation = map[position.y][position.x];
